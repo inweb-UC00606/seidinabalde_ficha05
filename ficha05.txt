@@ -1,0 +1,77 @@
+#include <iostream>
+
+int main() {
+
+    int opcao = 0;
+
+    while (opcao != 4) {
+
+        std::cout << "\n===== MENU =====" << std::endl;
+        std::cout << "1 - Calcular a area do circulo" << std::endl;
+        std::cout << "2 - Calcular dias de vida" << std::endl;
+        std::cout << "3 - Calcular AR (pressao/volume/temperatura)" << std::endl;
+        std::cout << "4 - Sair" << std::endl;
+        std::cout << "Escolha uma opcao: ";
+        std::cin >> opcao;
+
+        if (opcao == 1) {
+            float raio, area;
+
+            std::cout << "Introduza o raio do circulo: ";
+            std::cin >> raio;
+
+            area = 3.14f * raio * raio;
+
+            std::cout << "A area do circulo e: " << area << std::endl;
+        }
+
+        else if (opcao == 2) {
+            std::string nome;
+            int idade;
+
+            std::cout << "Digite o nome: ";
+            std::cin >> nome;
+
+            std::cout << "Insira a idade: ";
+            std::cin >> idade;
+
+            if (idade < 1) {
+                std::cout << "Erro! Idade inferior a 1" << std::endl;
+            } else {
+                int diasdevida = idade * 365;
+                std::cout << nome << " tem dias de vida: " << diasdevida << std::endl;
+            }
+        }
+
+        else if (opcao == 3) {
+            float p, v, t, ar;
+
+            std::cout << "Introduz a pressao: ";
+            std::cin >> p;
+
+            std::cout << "Introduz o volume: ";
+            std::cin >> v;
+
+            std::cout << "Introduz a temperatura: ";
+            std::cin >> t;
+
+            ar = (p * v) / (0.37f * (t + 460));
+
+            if (ar >= 0 && ar < 100) {
+                std::cout << "Cuidado" << std::endl;
+            } else {
+                std::cout << "Boa viagem" << std::endl;
+            }
+        }
+
+        else if (opcao == 4) {
+            std::cout << "Obrigado! A sair do programa..." << std::endl;
+        }
+
+        else {
+            std::cout << "Opcao invalida!" << std::endl;
+        }
+    }
+
+    return 0;
+}
